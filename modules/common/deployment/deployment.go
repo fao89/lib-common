@@ -24,6 +24,7 @@ import (
 	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
 	"github.com/openstack-k8s-operators/lib-common/modules/common/util"
 	appsv1 "k8s.io/api/apps/v1"
+	corev1 "k8s.io/api/core/v1"
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
@@ -78,7 +79,11 @@ func (d *Deployment) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("Deployment %s not found, reconcile in %s", deployment.Name, d.timeout))
 			return ctrl.Result{RequeueAfter: d.timeout}, nil
 		}
+		h.GetRecorder().Event(deployment, corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating deployment: %s", d.deployment.Name))
 		return ctrl.Result{}, err
+	}
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(deployment, corev1.EventTypeNormal, "Created", fmt.Sprintf("deployment %s created", d.deployment.Name))
 	}
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("Deployment %s - %s", deployment.Name, op))

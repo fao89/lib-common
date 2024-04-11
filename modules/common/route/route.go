@@ -27,6 +27,7 @@ import (
 	"github.com/openstack-k8s-operators/lib-common/modules/common/util"
 	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 
+	corev1 "k8s.io/api/core/v1"
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
@@ -164,7 +165,11 @@ func (r *Route) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("Route %s not found, reconcile in %s", route.Name, r.timeout))
 			return ctrl.Result{RequeueAfter: r.timeout}, nil
 		}
+		h.GetRecorder().Event(route, corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating route: %s", r.route.Name))
 		return ctrl.Result{}, err
+	}
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(route, corev1.EventTypeNormal, "Created", fmt.Sprintf("route %s created", r.route.Name))
 	}
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("Route %s - %s", route.Name, op))

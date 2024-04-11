@@ -22,6 +22,7 @@ import (
 	"time"
 
 	batchv1 "k8s.io/api/batch/v1"
+	corev1 "k8s.io/api/core/v1"
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"
 
@@ -63,7 +64,11 @@ func (cj *CronJob) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("CronJob %s not found, reconcile in %s", cj.cronjob.Name, cj.timeout))
 			return ctrl.Result{RequeueAfter: cj.timeout}, nil
 		}
+		h.GetRecorder().Event(cronjob, corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating cronjob: %s", cj.cronjob.Name))
 		return ctrl.Result{}, err
+	}
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(cronjob, corev1.EventTypeNormal, "Created", fmt.Sprintf("cronjob %s created", cj.cronjob.Name))
 	}
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("CronJob %s - %s", cj.cronjob.Name, op))

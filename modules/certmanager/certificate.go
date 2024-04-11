@@ -133,8 +133,14 @@ func (c *Certificate) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("Certificate %s not found, reconcile in %s", cert.Name, c.timeout))
 			return ctrl.Result{RequeueAfter: c.timeout}, nil
 		}
+		h.GetRecorder().Event(cert, k8s_corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating certificate: %s", c.certificate.Name))
 		return ctrl.Result{}, err
 	}
+
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(cert, k8s_corev1.EventTypeNormal, "Created", fmt.Sprintf("certificate %s created", c.certificate.Name))
+	}
+
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("Route %s - %s", cert.Name, op))
 	}

@@ -24,6 +24,7 @@ import (
 	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
 	"github.com/openstack-k8s-operators/lib-common/modules/common/util"
 	appsv1 "k8s.io/api/apps/v1"
+	corev1 "k8s.io/api/core/v1"
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/types"
@@ -88,7 +89,11 @@ func (s *StatefulSet) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("StatefulSet %s not found, reconcile in %s", statefulset.Name, s.timeout))
 			return ctrl.Result{RequeueAfter: s.timeout}, nil
 		}
+		h.GetRecorder().Event(statefulset, corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating statefulset: %s", statefulset.Name))
 		return ctrl.Result{}, err
+	}
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(statefulset, corev1.EventTypeNormal, "Created", fmt.Sprintf("statefulset %s created", statefulset.Name))
 	}
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("StatefulSet %s - %s", statefulset.Name, op))

@@ -323,7 +323,11 @@ func (s *Service) CreateOrPatch(
 			h.GetLogger().Info(fmt.Sprintf("Service %s not found, reconcile in %s", service.Name, s.timeout))
 			return ctrl.Result{RequeueAfter: s.timeout}, nil
 		}
+		h.GetRecorder().Event(service, corev1.EventTypeWarning, "Error", fmt.Sprintf("error create/updating service: %s", service.Name))
 		return ctrl.Result{}, err
+	}
+	if op == controllerutil.OperationResultCreated {
+		h.GetRecorder().Event(service, corev1.EventTypeNormal, "Created", fmt.Sprintf("service %s created", service.Name))
 	}
 	if op != controllerutil.OperationResultNone {
 		h.GetLogger().Info(fmt.Sprintf("Service %s - %s", service.Name, op))
