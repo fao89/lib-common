@@ -22,10 +22,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/fao89/lib-common/modules/common/helper"
 	"github.com/go-logr/logr"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
 	"go.uber.org/zap/zapcore"
 
 	"k8s.io/client-go/kubernetes"
@@ -41,7 +41,7 @@ import (
 	batchv1 "k8s.io/api/batch/v1"
 	corev1 "k8s.io/api/core/v1"
 
-	. "github.com/openstack-k8s-operators/lib-common/modules/common/test/helpers"
+	. "github.com/fao89/lib-common/modules/common/test/helpers"
 	//+kubebuilder:scaffold:imports
 )
 

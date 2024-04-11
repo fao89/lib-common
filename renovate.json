@@ -16,7 +16,7 @@
 		},
 		{
 			"matchPackageNames": [
-				"github.com/openstack-k8s-operators/lib-common/modules/common"
+				"github.com/fao89/lib-common/modules/common"
 			],
 			"enabled": false
 		}

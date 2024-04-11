@@ -23,7 +23,7 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/rand"
 
-	env "github.com/openstack-k8s-operators/lib-common/modules/common/env"
+	env "github.com/fao89/lib-common/modules/common/env"
 	corev1 "k8s.io/api/core/v1"
 )
 

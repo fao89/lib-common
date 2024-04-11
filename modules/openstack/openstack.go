@@ -23,10 +23,10 @@ import (
 	"net/http"
 	"time"
 
+	service "github.com/fao89/lib-common/modules/common/service"
 	"github.com/go-logr/logr"
 	gophercloud "github.com/gophercloud/gophercloud"
 	"github.com/gophercloud/gophercloud/openstack"
-	service "github.com/openstack-k8s-operators/lib-common/modules/common/service"
 )
 
 const (

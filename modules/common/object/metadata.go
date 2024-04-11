@@ -23,7 +23,7 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
+	"github.com/fao89/lib-common/modules/common/helper"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"

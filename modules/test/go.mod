@@ -1,4 +1,4 @@
-module github.com/openstack-k8s-operators/lib-common/modules/test
+module github.com/fao89/lib-common/modules/test
 
 go 1.20
 
@@ -20,9 +20,9 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/openstack-k8s-operators/lib-common/modules/common => ../common
+replace github.com/fao89/lib-common/modules/common => ../common
 
-replace github.com/openstack-k8s-operators/lib-common/modules/openstack => ../openstack
+replace github.com/fao89/lib-common/modules/openstack => ../openstack
 
 // mschuppert: map to latest commit from release-4.13 tag
 // must consistent within modules and service operators

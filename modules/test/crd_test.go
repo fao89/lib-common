@@ -120,7 +120,7 @@ func TestGetOpenShiftCRDDir(t *testing.T) {
 		mod := []byte(`module foo
 go 1.21
 require (
-	github.com/openstack-k8s-operators/lib-common/modules/test v0.0.0-20220630111354-9f8383d4a2ea
+	github.com/fao89/lib-common/modules/test v0.0.0-20220630111354-9f8383d4a2ea
 )
 		`)
 		modPath := filepath.Join(dir, "go.mod")
@@ -129,7 +129,7 @@ require (
 
 		path, err := GetOpenShiftCRDDir("route/v1", modPath)
 		g.Expect(err).ShouldNot(HaveOccurred())
-		g.Expect(path).Should(MatchRegexp("/.*/github.com/openstack-k8s-operators/lib-common/modules/test@v.*/openshift_crds/route/v1"))
+		g.Expect(path).Should(MatchRegexp("/.*/github.com/fao89/lib-common/modules/test@v.*/openshift_crds/route/v1"))
 	})
 	t.Run("with a CRD without having lib-common in go.mod", func(t *testing.T) {
 		g := NewWithT(t)
@@ -138,6 +138,6 @@ require (
 		_, err := GetOpenShiftCRDDir("route/v1", "go.mod")
 		g.Expect(err).Should(HaveOccurred())
 		fmt.Printf("%s", err)
-		g.Expect(err).Should(MatchError("cannot find github.com/openstack-k8s-operators/lib-common/modules/test in go.mod file"))
+		g.Expect(err).Should(MatchError("cannot find github.com/fao89/lib-common/modules/test in go.mod file"))
 	})
 }

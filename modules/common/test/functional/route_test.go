@@ -16,10 +16,10 @@ limitations under the License.
 package functional
 
 import (
+	"github.com/fao89/lib-common/modules/common/route"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/route"
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/utils/ptr"

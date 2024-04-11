@@ -42,8 +42,8 @@ import (
 	certmgrv1 "github.com/cert-manager/cert-manager/pkg/apis/certmanager/v1"
 	corev1 "k8s.io/api/core/v1"
 
-	certmanager_test "github.com/openstack-k8s-operators/lib-common/modules/certmanager/test/helpers"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
+	certmanager_test "github.com/fao89/lib-common/modules/certmanager/test/helpers"
+	"github.com/fao89/lib-common/modules/common/helper"
 	//+kubebuilder:scaffold:imports
 )
 

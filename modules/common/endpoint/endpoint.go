@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/route"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/service"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/util"
+	"github.com/fao89/lib-common/modules/common/helper"
+	"github.com/fao89/lib-common/modules/common/route"
+	"github.com/fao89/lib-common/modules/common/service"
+	"github.com/fao89/lib-common/modules/common/util"
 	corev1 "k8s.io/api/core/v1"
 	ctrl "sigs.k8s.io/controller-runtime"
 )

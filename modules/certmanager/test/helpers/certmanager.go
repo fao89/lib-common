@@ -25,7 +25,7 @@ import (
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"
 
-	base "github.com/openstack-k8s-operators/lib-common/modules/common/test/helpers"
+	base "github.com/fao89/lib-common/modules/common/test/helpers"
 )
 
 // TestHelper is a collection of helpers for testing operators. It extends the

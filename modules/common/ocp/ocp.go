@@ -19,7 +19,7 @@ package ocp
 import (
 	"context"
 
-	"github.com/openstack-k8s-operators/lib-common/modules/common/helper"
+	"github.com/fao89/lib-common/modules/common/helper"
 
 	"gopkg.in/yaml.v3"
 	corev1 "k8s.io/api/core/v1"

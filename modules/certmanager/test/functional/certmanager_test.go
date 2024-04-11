@@ -17,9 +17,9 @@ package functional
 import (
 	"fmt"
 
+	"github.com/fao89/lib-common/modules/certmanager"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/certmanager"
 	corev1 "k8s.io/api/core/v1"
 	k8s_errors "k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/types"

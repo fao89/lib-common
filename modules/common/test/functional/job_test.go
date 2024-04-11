@@ -18,10 +18,10 @@ package functional
 import (
 	"errors"
 
+	"github.com/fao89/lib-common/modules/common/job"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/job"
 
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"

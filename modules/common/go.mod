@@ -1,4 +1,4 @@
-module github.com/openstack-k8s-operators/lib-common/modules/common
+module github.com/fao89/lib-common/modules/common
 
 go 1.20
 

@@ -138,7 +138,7 @@ func GetOpenShiftCRDDir(crdName string, goModPath string) (string, error) {
 	// OpenShift CRDs are stored within lib-common so get them from there. To
 	// call GetOpenShiftCRDDir the caller needs to have the test module
 	// imported so we can use that as anchor for the openshift_crds directory
-	libCommon := "github.com/openstack-k8s-operators/lib-common/modules/test"
+	libCommon := "github.com/fao89/lib-common/modules/test"
 	libCommon, version, err := getDependencyVersion(libCommon, goModPath)
 	if err != nil {
 		return "", err

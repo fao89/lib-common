@@ -21,8 +21,8 @@ import (
 
 	"github.com/onsi/gomega"
 
+	"github.com/fao89/lib-common/modules/common/condition"
 	"github.com/go-logr/logr"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/condition"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/apimachinery/pkg/types"
 

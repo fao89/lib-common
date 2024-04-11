@@ -21,7 +21,7 @@ import (
 
 	. "github.com/onsi/gomega"
 
-	env "github.com/openstack-k8s-operators/lib-common/modules/common/env"
+	env "github.com/fao89/lib-common/modules/common/env"
 )
 
 func TestObjectHash(t *testing.T) {

@@ -16,10 +16,10 @@ limitations under the License.
 package functional
 
 import (
+	"github.com/fao89/lib-common/modules/common/object"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/object"
 
 	"k8s.io/apimachinery/pkg/types"
 )

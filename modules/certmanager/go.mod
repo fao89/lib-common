@@ -1,4 +1,4 @@
-module github.com/openstack-k8s-operators/lib-common/modules/certmanager
+module github.com/fao89/lib-common/modules/certmanager
 
 go 1.20
 
@@ -8,7 +8,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/onsi/ginkgo/v2 v2.17.1
 	github.com/onsi/gomega v1.32.0
-	github.com/openstack-k8s-operators/lib-common/modules/common v0.3.1-0.20240122120141-2eff3281aef1
+	github.com/fao89/lib-common/modules/common v0.3.1-0.20240122120141-2eff3281aef1
 	go.uber.org/zap v1.27.0
 	golang.org/x/exp v0.0.0-20240119083558-1b970713d09a
 	k8s.io/api v0.28.8
@@ -77,11 +77,11 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/openstack-k8s-operators/lib-common/modules/common => ../common
+replace github.com/fao89/lib-common/modules/common => ../common
 
-replace github.com/openstack-k8s-operators/lib-common/modules/test => ../test
+replace github.com/fao89/lib-common/modules/test => ../test
 
-replace github.com/openstack-k8s-operators/lib-common/modules/openstack => ../openstack
+replace github.com/fao89/lib-common/modules/openstack => ../openstack
 
 // mschuppert: map to latest commit from release-4.13 tag
 // must consistent within modules and service operators

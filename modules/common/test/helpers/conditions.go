@@ -14,8 +14,8 @@ limitations under the License.
 package helpers
 
 import (
+	"github.com/fao89/lib-common/modules/common/condition"
 	t "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/condition"
 	"k8s.io/apimachinery/pkg/types"
 
 	corev1 "k8s.io/api/core/v1"

@@ -1,11 +1,11 @@
-module github.com/openstack-k8s-operators/lib-common/modules/openstack
+module github.com/fao89/lib-common/modules/openstack
 
 go 1.20
 
 require (
 	github.com/go-logr/logr v1.4.1
 	github.com/gophercloud/gophercloud v1.11.0
-	github.com/openstack-k8s-operators/lib-common/modules/common v0.3.1-0.20240122120141-2eff3281aef1
+	github.com/fao89/lib-common/modules/common v0.3.1-0.20240122120141-2eff3281aef1
 )
 
 require (
@@ -67,7 +67,7 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/openstack-k8s-operators/lib-common/modules/common => ../common
+replace github.com/fao89/lib-common/modules/common => ../common
 
 // mschuppert: map to latest commit from release-4.13 tag
 // must consistent within modules and service operators

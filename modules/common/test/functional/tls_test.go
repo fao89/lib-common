@@ -16,11 +16,11 @@ limitations under the License.
 package functional
 
 import (
+	"github.com/fao89/lib-common/modules/common/service"
+	"github.com/fao89/lib-common/modules/common/tls"
 	"github.com/google/uuid"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/service"
-	"github.com/openstack-k8s-operators/lib-common/modules/common/tls"
 	"k8s.io/apimachinery/pkg/types"
 	ctrl "sigs.k8s.io/controller-runtime"
 )

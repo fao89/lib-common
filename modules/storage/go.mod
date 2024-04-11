@@ -1,4 +1,4 @@
-module github.com/openstack-k8s-operators/lib-common/modules/storage
+module github.com/fao89/lib-common/modules/storage
 
 go 1.20
 
